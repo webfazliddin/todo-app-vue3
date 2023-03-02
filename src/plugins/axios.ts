@@ -1,7 +1,7 @@
 import type { AxiosError } from "axios";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://jsonplaceholder.typicode.com"; // shuni oziz .env ga chiqarib qosayz ok.
+axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
 
 axios.defaults.headers.Accept = "application/json";
 axios.defaults.headers["Content-Type"] = "application/json";
