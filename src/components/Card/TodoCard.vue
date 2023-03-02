@@ -56,6 +56,7 @@ const toggleRemove = () => {
 }
 .description {
   color: $color-black;
+  font-family: $base-font;
   overflow: hidden;
 }
 
