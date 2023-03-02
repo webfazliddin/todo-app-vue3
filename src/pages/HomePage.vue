@@ -5,9 +5,24 @@ import TodoList from "@/components/Lists/TodoList.vue";
 import AddTodoModal from "@/components/Modals/AddTodoModal.vue";
 import { useStorage } from "@vueuse/core";
 import type { ITodoItemData } from "@/types";
+import { ref, onMounted } from "vue";
+import { fetchAllProducts } from "@/services/product.service";
 
 const showAddTodo = reactive({ visible: false });
 const todoList = useStorage<ITodoItemData[]>("todo-app-list", []);
+
+interface Products {
+  id: number;
+  name: string;
+}
+
+const products = ref<Products[]>([]);
+
+onMounted(async () => {
+  const response = await fetchAllProducts();
+  console.log(response);
+  products.value = response.data;
+});
 
 const addTodoClick = () => {
   toggleAddTodoModal();
